@@ -1,0 +1,55 @@
+{
+    "intents": [
+        {
+            "intent_name": "start",
+            "keywords": ["hello", "hi", "hey","hie","hallo"],
+            "answers": [
+                "All good , Want to book your ticket yes or No "
+            ]
+        },
+       
+        {
+            
+            "intent_name": "book",
+            "keywords": ["movie-ticket","Book ticket","book","yes"],
+            "answers": ["Write Movie name you want to watch ?.\n "],
+            "next_expectation": ""
+        },
+        {
+            "intent_name": "date",
+            "keywords": ["schedule date","Book date","date","day"],
+            "answers": ["Enter Date to book in YYYY-MM-DD\n "],
+            "next_expectation": ""
+        },
+        {
+            "intent_name": "time",
+            "keywords": ["time","show time","movie time","tim"],
+            "answers": ["Enter show time which you preffered in 24hr format Example(13:00) "],
+            "next_expectation": ""
+        },
+        {
+            
+            "intent_name": "review",
+            "keywords": ["review","movie review","score","imdb","rating"],
+            "answers": ["enter Movie name to see Review"],
+            "next_expectation":""
+        },
+        {
+            
+            "intent_name":"No-booking",
+            "keywords":["No","no booking ","no movie tickets","book No","no"],
+            "answers":["So whatever you want to search about any movie, you can command me Eg: Movie_name Cast, review, language etc"],
+            "next_expectation":""
+        },
+        {
+            
+            "intent_name": "time",
+            "keywords": ["time", "movie time", "showtime"],
+            "answers": ["Enter the movie time in 24-hour format"],
+            "next_expectation": ""
+          }
+          
+            
+        
+    ]
+}
