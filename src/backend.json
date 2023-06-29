@@ -29,8 +29,8 @@
         },
         {
             "intent_name": "seats",
-            "keywords": ["prices","seat price","charges","ticket price","price"],
-            "answers": ["PRICE CHART GENREAL SEAT : 1 € PREMIUM SEAT : 2.5 € RECLINER SEAT :4.0 €   type which seat you want. "],
+            "keywords": ["prices","seat price","charges","ticket price","price","general","premium","recliner"],
+            "answers": ["PRICE CHART GENERAL SEAT : 1 € PREMIUM SEAT : 2.5 € RECLINER SEAT :4.0 €   type which seat you want. "],
             "next_expectation": ""
         },
         
@@ -38,7 +38,7 @@
         {
             
             "intent_name": "movie-language",
-            "keywords": ["language","movie language","english","hindi","Deutsch"],
+            "keywords": ["language","movie language","english","hindi","deutsch"],
             "answers": ["enter Movie language : We have three Option(English , Hindi ,Deutsch"],
             "next_expectation":""
         },
@@ -72,7 +72,7 @@
         },
         {
             "intent_name": "food-services",
-            "keywords": ["food","services","assistant"],
+            "keywords": ["food","services","assistant","fries","burger","popcorn"],
             "answers": ["Name combo to add food in your ticket ? Here's the Menu => (fries, Burger ,popcorn)"],
             "next_expectation":""
 
@@ -100,7 +100,7 @@
         },
         {
             "intent_name": "payment-option",
-            "keywords": ["pay","payment","money","card"],
+            "keywords": ["pay","payment","money","card","online","cash"],
             "answers": ["select payment option : Online payment or Cash"],
             "next_expectation":""
 
