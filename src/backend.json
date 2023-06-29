@@ -28,11 +28,96 @@
             "next_expectation": ""
         },
         {
+            "intent_name": "seats",
+            "keywords": ["prices","seat price","charges","ticket price","price"],
+            "answers": ["PRICE CHART GENREAL SEAT : 1 € PREMIUM SEAT : 2.5 € RECLINER SEAT :4.0 €   type which seat you want. "],
+            "next_expectation": ""
+        },
+        
+        
+        {
             
-            "intent_name": "review",
-            "keywords": ["review","movie review","score","imdb","rating"],
-            "answers": ["enter Movie name to see Review"],
+            "intent_name": "movie-language",
+            "keywords": ["language","movie language","english","hindi","Deutsch"],
+            "answers": ["enter Movie language : We have three Option(English , Hindi ,Deutsch"],
             "next_expectation":""
+        },
+        {
+            
+            "intent_name": "movie_type",
+            "keywords": ["movie type","3D","2D","3d","2d","animation"],
+            "answers": ["One more Thing you want to watch movie in 3D or 2D ?"],
+            "next_expectation":""
+        },
+        {
+            
+            "intent_name": "seat-number",
+            "keywords": ["number","seat number","seat-number"],
+            "answers": ["Enter seat number you want between :"],
+            "next_expectation":""
+        },
+        {
+            
+            "intent_name": "total-adults",
+            "keywords": ["number of adults","adults","persons"],
+            "answers": ["Enter total number of Adults to book ticket :"],
+            "next_expectation":""
+        },
+        {
+            
+            "intent_name": "total-children",
+            "keywords": ["number of childeren","child","kids","childeren"],
+            "answers": ["Enter number of childeren to book ticket for them: :"],
+            "next_expectation":""
+        },
+        {
+            "intent_name": "food-services",
+            "keywords": ["food","services","assistant"],
+            "answers": ["Name combo to add food in your ticket ? Here's the Menu => (fries, Burger ,popcorn)"],
+            "next_expectation":""
+
+        },
+        {
+            "intent_name": "parking-service",
+            "keywords": ["parking","car","park"],
+            "answers": [" free Parking  Aailable Write Add Parking to make it reserve for you:) "],
+            "next_expectation":""
+
+        },
+        {
+            "intent_name": "mobile-number",
+            "keywords": ["mobile number","contact-detail","mob","num"],
+            "answers": ["Enter ypur Mobile-Number to verify you :)"],
+            "next_expectation":""
+
+        },
+        {
+            "intent_name": "eamil-id",
+            "keywords": ["id","email","gmail","mail"],
+            "answers": ["Enter  email id to get Pdf of Ticket :)"],
+            "next_expectation":""
+
+        },
+        {
+            "intent_name": "payment-option",
+            "keywords": ["pay","payment","money","card"],
+            "answers": ["select payment option : Online payment or Cash"],
+            "next_expectation":""
+
+        },
+        {
+            "intent_name": "Ticket",
+            "keywords": ["ticket","print","tick","details"],
+            "answers": ["Here is Your Ticket : Check it out + Enjoy Your Movie :)"],
+            "next_expectation":""
+
+        },
+        {
+            "intent_name": "edit",
+            "keywords": ["edit","change","change detail","edit detail"],
+            "answers": ["enter whatever you want to edit (such as number of adults , seat , Payment option etc)"],
+            "next_expectation":""
+
         },
         {
             
@@ -40,14 +125,7 @@
             "keywords":["No","no booking ","no movie tickets","book No","no"],
             "answers":["So whatever you want to search about any movie, you can command me Eg: Movie_name Cast, review, language etc"],
             "next_expectation":""
-        },
-        {
-            
-            "intent_name": "time",
-            "keywords": ["time", "movie time", "showtime"],
-            "answers": ["Enter the movie time in 24-hour format"],
-            "next_expectation": ""
-          }
+        }
           
             
         
