@@ -22,7 +22,7 @@ const InputArea = (props) => {
 
     return (
         <div className="header_bottom" id="input">
-            <textarea id="input_area" ref={textareaRef} onKeyDown={handleKeyDown} placeholder="Search Trending movies here..." value={value} onChange={event => setValue(event.target.value)}></textarea>
+            <textarea id="input_area" ref={textareaRef} onKeyDown={handleKeyDown} placeholder="say HEY to start" value={value} onChange={event => setValue(event.target.value)}></textarea>
             <button className="send_button" type="submit" id="send" onClick={HandleSend}>Send</button>
         </div>
     );
