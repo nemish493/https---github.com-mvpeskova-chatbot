@@ -26,7 +26,7 @@ const Sidebar = (props) => {
                 </li>
                 <li>
                     <button className="bar" onClick={() => addText('you can add your emails here:\n' +
-         'Nemish Kyada: \nAzbabanu Engineer: \nDon Binoy: \nMariia Peskova: mariia.peskovaa@gmail.com')}>Contact
+         'Nemish Kyada:nemish.kyada@stud.th-deg.de \nAzbabanu Engineer: \nDon Binoy: \nMariia Peskova: mariia.peskovaa@gmail.com')}>Contact
                     </button>
                 </li>
                 <button className="bar" id="dark_theme" onClick={props.func}>Change Mode</button>
