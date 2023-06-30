@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
-const server = require('http').Server(app);
+const servero = require('http');
+const server=servero.Server(app);
+
 const io = require('socket.io')(server, {
   cors: {
     origin: '*',
@@ -8,7 +10,7 @@ const io = require('socket.io')(server, {
 });
 const json = require('./backend.json');
 const intents = json.intents;
-const axios = require('axios');
+
 const cors = require('cors');
 
 app.use(cors());
@@ -33,7 +35,8 @@ let park ='';
 let mobile_number='';
 let email_id='';
 let payment_option='';
-let message='';
+
+
 
 
 io.on('connection', (socket) => {
@@ -41,10 +44,14 @@ io.on('connection', (socket) => {
 
   socket.on('human', (data) => {
     const input = data.toLowerCase();
+
+    
+    
     
     switch (intent) {
       case 'start':
         processStartIntent(socket, input);
+        
         break;
       case 'book':
         book(socket,input);
@@ -91,9 +98,12 @@ io.on('connection', (socket) => {
       case 'payment-option':
         payment(socket,input);
         break;
-      case 'Ticket':
-        ticket(socket);
-        break;
+      default :
+        resetVariables(socket,input);
+        processStartIntent(socket,input)
+        
+      
+      
       
     }
   });
@@ -296,66 +306,89 @@ function email(socket, input) {
 }
 
 function payment(socket, input) {
-  
-
-  
   const match = intents[14].keywords.find(keyword => input.toLowerCase().includes(keyword));
 
   if (match) {
     payment_option = match;
     const confirmation= `your payment option is ${payment_option}`;
+    const seatPrice = 10; 
+    const totalCost = total_adults * seatPrice + total_childeren * 1.5;
+    
     socket.emit('botmes',confirmation);
+    setTimeout(()=>{
+      socket.emit('botmes', intents[15].answers+ `Ticket Details:
+      Movie Name: ${movieName}                
+      Date: ${date}
+      Time: ${time}
+      Seats: ${seats}
+      Language: ${movielan}
+      Movie Type: ${movietype}
+      Seat Number: ${seatnumber}
+      Food: ${foods}
+      Parking Option: ${park}
+      Total Cost: ${totalCost}€
+      Mobile Number: ${mobile_number}
+      Email: ${email_id}
+      TYPE RESTART TO MAKE IT AGAIN:`);
+    },1000);
+    
+
   
   } else {
     socket.emit('botmes', 'Please select a valid payment option (cash or online).');
     return;
   }
-  console.log(payment_option);
+  
+  
+  
+}
+function resetVariables(socket,input) {
+  let match = intents[17].keywords.filter((keyword) =>
+  input.includes(keyword))
 
-  intent = 'Ticket';
-  socket.emit('botmes', intents[15].answers);
-  ticket(socket);
+  if(match.length!==0){
+    
+  intent='start';
+  movieName = '';
+  date = '';
+  time = '';
+  seats = '';
+  movielan = '';
+  movietype = '';
+  seatnumber = '';
+  total_adults = '';
+  total_childeren = '';
+  foods = '';
+  park = '';
+  mobile_number = '';
+  email_id = '';
+  payment_option = '';
+  }
+  else{
+    socket.emit('botmes',`type restart :`)
+  }  
+
+  
 }
 
-function ticket(socket) {
-  const seatPrice = 10; 
-  const totalCost = total_adults * seatPrice + total_childeren * 1.5;
-  
-  message = `Ticket Details:
-  Movie Name: ${movieName}
-  Date: ${date}
-  Time: ${time}
-  Seats: ${seats}
-  Language: ${movielan}
-  Movie Type: ${movietype}
-  Seat Number: ${seatnumber}
-  Food: ${foods}
-  Parking Option: ${park}
-  Total Cost: ${totalCost}
-  Mobile Number: ${mobile_number}
-  Email: ${email_id}`;
-  console.log(message);
 
-  socket.emit('botmes', message);
-  
-  socket.emit('botmes',intents[16].answers);
-}
+
 
 
 function fallback() {
-  // Fallback logic goes here
+  
 }
 
 
 function handleBookFallback(socket, input) {
-  // Check if the input contains any keywords related to "yes" or "no"
+  
   let yesMatch = intents[1].keywords.filter((keyword) =>
     input.includes(keyword)
   );
   
 
   if (yesMatch.length == 0 ) {
-    // User provided a response, but it wasn't clear. Ask them to rephrase.
+  
     socket.emit('botmes', "Sorry, I didn't understand your response. Please rephrase it.");
   } else {
     fallback();
@@ -407,6 +440,3 @@ function select_movie(socket, input) {
   }
   console.log(movie_lang);
 }
-
-
-
