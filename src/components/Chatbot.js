@@ -21,7 +21,7 @@ const Chatbot = () => {
     const[update, setUpdate] = useState("https://github.com/mvpeskova/chatbot/blob/master/pictures/update_grey.png?raw=true");
 
     const greetingMessage = {
-        info: "Heyy, Your BUZZY bot is here . Want to Book ticket now ?",
+        info: "Heyy, Welcome to MOVIE BOOKING SYSTEM say hi to start chat ?",
         date: getCurrentTime(),
         type: "left",
         name: "Bot"
