@@ -106,7 +106,7 @@
 
         },
         {
-            "intent_name": "Ticket",
+            "intent_name": "ticket",
             "keywords": ["ticket","print","tick","details"],
             "answers": ["Here is Your Ticket : Check it out + Enjoy Your Movie :)"],
             "next_expectation":""
@@ -118,6 +118,11 @@
             "answers": ["enter whatever you want to edit (such as number of adults , seat , Payment option etc)"],
             "next_expectation":""
 
+        },
+        {
+            "name": "restart",
+            "keywords": ["restart","reload","re","start"],
+            "answers": []
         },
         {
             
